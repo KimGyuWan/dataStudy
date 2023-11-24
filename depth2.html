@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    const gnbList = [
+      {
+        nm: "랭콘소개",
+        href: "#none",
+        sub: [
+          {
+            nm: "Philosophy",
+            href: ""
+          },
+          {
+            nm: "캐릭터소개",
+            href: ""
+          },
+          {
+            nm: "랭콘 이야기",
+            href: ""
+          }
+        ]
+      },
+      {
+        nm: "프로그램",
+        href: "#none",
+        sub: [
+          {
+            nm: "Level",
+            href: ""
+          },
+          {
+            nm: "Curriculum",
+            href: ""
+          },
+          {
+            nm: "Textbooks",
+            href: ""
+          },
+          {
+            nm: "Homework",
+            href: ""
+          },
+          {
+            nm: "Assessment",
+            href: ""
+          },
+          {
+            nm: "Motivation",
+            href: ""
+          }
+        ]
+      },
+      {
+        nm: "입학안내",
+        href: "#none",
+        sub: [
+          {
+            nm: "입학 절차",
+            href: ""
+          },
+          {
+            nm: "레벨테스트 소개",
+            href: ""
+          },
+          {
+            nm: "방문 레벨테스트 예약",
+            href: ""
+          }
+        ]
+      }
+    ]
+  </script>
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+  <script>
+
+    $(function () {
+
+      //   let gnbListTag = "";
+
+      //   for (x in gnbList) {
+      //     gnbListTag += `<li><a href="${gnbList[x].href}">${gnbList[x].nm}</a>`;
+      //     gnbListTag += `<ul>`;
+
+      //     for (y in gnbList[x].sub) {
+      //       gnbListTag += `<li><a href="${gnbList[x].sub[y].href}">${gnbList[x].sub[y].nm}</a></li>`;
+      //     }
+
+      //     gnbListTag += `</ul>`;
+      //     gnbListTag += `</li>`;
+      //   }
+
+      //   $("#gnb").html(gnbListTag);
+
+      // ---------------------------------------------------------------------------------------------------
+
+      let strongs = "";
+      let liTag = "";
+
+      for (x in gnbList) {
+        strongs += `<strong>${gnbList[x].nm}</strong> / `;
+      }
+
+
+      for (x in gnbList[0].sub) {
+        liTag += `<p>${gnbList[0].sub[x].nm}</p>`;
+      }
+
+
+      $("#tab").html(strongs);
+      $(".tabcontent").html(liTag);
+
+      function strongClick(el, idx) {
+        $("#tab strong").on("click", function strongClick() {
+          liTag = "";
+          for (x in gnbList[$(this).index()].sub) {
+            liTag += `<p>${gnbList[$(this).index()].sub[x].nm}</p>`;
+          }
+          $(".tabcontent").html(liTag);
+        })
+      }
+
+      strongClick(strongs, )
+
+      // $("#tab strong").on("click", function strongClick() {
+      //   liTag = "";
+      //   for (x in gnbList[$(this).index()].sub) {
+      //     liTag += `<p>${gnbList[$(this).index()].sub[x].nm}</p>`;
+      //   }
+      //   $(".tabcontent").html(liTag);
+      // })
+
+
+    })
+  </script>
+</head>
+
+<body>
+  <ul id="gnb">
+  </ul>
+
+  <div id="tab">
+
+  </div>
+  <div class="tabcontent">
+
+  </div>
+
+
+</body>
+
+</html>
